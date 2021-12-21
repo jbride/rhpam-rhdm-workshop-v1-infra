@@ -1,0 +1,16 @@
+- name: Create Guides Module 1
+  hosts: localhost
+  tasks:
+  - import_role:
+      name: /u01/labs/ops/ansible-openshift-workshopper
+    vars:
+      workshopper_name: "guides-m1"
+      project_name: "rhpam-dm-workshop"
+      workshopper_content_url_prefix: https://raw.githubusercontent.com/RedHat-Middleware-Workshops/rhpam-rhdm-workshop-v1m1-guides/master
+      workshopper_workshop_urls: https://raw.githubusercontent.com/RedHat-Middleware-Workshops/rhpam-rhdm-workshop-v1m1-guides/master/_rhpam-rhdm-workshop-module1.yml
+      workshopper_env_vars:
+        PROJECT_SUFFIX: "-XX"
+        OPENSHIFT_CONSOLE_URL: "https://console-openshift-console.apps.valkyrie.rhnaps.io"
+        NEXUS_URL: "http://nexus-labs-infra.apps.valkyrie.rhnaps.io"
+
+      openshift_cli: "oc --server https://api.valkyrie.rhnaps.io:6443"
